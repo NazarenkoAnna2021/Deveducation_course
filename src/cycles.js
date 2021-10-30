@@ -107,9 +107,8 @@ let sum_elements_of_num = (number) => {
         if (+number < 0)
             number *= -1;
     let sum = 0;
-    let parts_of_num = Array.from(String(number), Number);
-    for (let value of parts_of_num)
-        sum += value;
+    for (let value of String(number))
+        sum += Number(value);
     return sum;
 }
 
@@ -123,17 +122,23 @@ let inversion_num = (number) => {
         return null;
     }
     let less_then_0 = false
-    if(+number < 0){
+    if (+number < 0) {
         less_then_0 = true;
         number *= -1
     }
 
-    let parts_of_num = Array.from(String(number));
+    let parts_of_num = [];
     let inversed_num = [];
+    let i = -1;
+
+    for (let value of String(number)){
+        i++;
+        parts_of_num[i] = Number(value);
+    }
     for (let i = parts_of_num.length - 1, j = 0; i >= 0; i--, j++)
         inversed_num[j] = parts_of_num[i];
-    return less_then_0 ? Number(String(inversed_num).replace(/[\s.,%]/g, ''))* -1:
-                         Number(String(inversed_num).replace(/[\s.,%]/g, ''));
+    return less_then_0 ? Number(String(inversed_num).replace(/[\s.,%]/g, '')) * -1 :
+        Number(String(inversed_num).replace(/[\s.,%]/g, ''));
 }
 
 console.log('Task 6');

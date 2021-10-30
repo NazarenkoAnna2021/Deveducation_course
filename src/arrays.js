@@ -13,8 +13,8 @@ let isArrayOfNum = (input) => {
 }
 
 //1
-let min_value = (input = []) => {
-       if(!isArrayOfNum(input)) return null;
+let min_value = (input) => {
+    if (!isArrayOfNum(input)) return null;
     let min = input[0];
     for (let value of input)
         if (+min > +value)
@@ -22,49 +22,26 @@ let min_value = (input = []) => {
     return min;
 }
 
-// console.log('1 task');
-// console.log(min_value([1, 1, 10, 4, 5, 1, 9, 6]));
-
-//10
-let partition = (numbers, first_index, last_index) => {
-    const pivot = numbers[last_index];
-    let location = first_index;
-    let templete;
-    for (let i = first_index; i < last_index; i++) {
-        if (numbers[i] < pivot) {
-            templete = numbers[i];
-            numbers[i] = numbers[location];
-            numbers[location] = templete;
-            location++;
-        }
-    }
-    templete = numbers[last_index];
-    numbers[last_index] = numbers[location];
-    numbers[location] = templete;
-    return location;
-};
-
-let quickSort = (numbers, first_index, last_index) => {
-    if (first_index >= last_index) {
-        return;
-    }
-    let index = partition(numbers, first_index, last_index);
-    quickSort(numbers, first_index, index - 1);
-    quickSort(numbers, index + 1, last_index);
-}
+console.log('1 task');
+console.log(min_value([1, -1, 10, 4, 5, 1, 9, 6]));
 
 //2
 let max_value = (input) => {
-    if(!isArrayOfNum(input)) return null;
-    quickSort(input, 0, input.length - 1);
-    return input[input.length - 1];
+    if (!isArrayOfNum(input)) return null;
+
+    let max = input[0];
+    for (let value of input)
+        if (+max < +value)
+            max = value;
+    return max;
 }
 
-// console.log('2 task');
-// console.log(max_value([7, -2, 4, 1, 6, 15, 0, -4, 2]));
+console.log('2 task');
+console.log(max_value([5, 2, 3, -10, 10, -10, 18, 55, 0]));
 
 //3
-let min_location = (input = []) => {
+let min_location = (input) => {
+    if (!isArrayOfNum(input)) return null;
     let plase_in_array = [];
     let counter_min = -1;
     const min = min_value(input);
@@ -79,24 +56,161 @@ let min_location = (input = []) => {
     else console.log(`minimum element of array ${min}, this value takes several elements, their numbers: ${plase_in_array}.`);
 }
 
-// console.log('3 task');
-//min_location([5, 2, 3, -10, 10, -10, 18, 55, 0]);
+console.log('3 task');
+min_location([5, 2, 3, -10, 10, 10, 18, 55, 0]);
 
 //4
 let max_location = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
     let plase_in_array = [];
-    let counter_min = -1;
+    let counter_max = -1;
     const max = max_value(input);
     if (max === null) return;
     for (let i = 0; i < input.length; i++)
-        if (+min === +input[i]) {
-            counter_min++;
-            plase_in_array[counter_min] = i + 1;
+        if (+max === +input[i]) {
+            counter_max++;
+            plase_in_array[counter_max] = i + 1;
         }
-    if (counter_min === 0)
-        console.log(`minimum element of array ${min}, it's number ${plase_in_array[0]}.`);
-    else console.log(`minimum element of array ${min}, this value takes several elements, their numbers: ${plase_in_array}.`);
+    if (counter_max === 0)
+        console.log(`maximum element of array ${max}, it's number ${plase_in_array[0]}.`);
+    else console.log(`maximum element of array ${max}, this value takes several elements, their numbers: ${plase_in_array}.`);
 }
 
-// console.log('4 task');
-// min_location([2, 2, 3, -10, 10, -10, 18, 55, 0]);
+console.log('4 task');
+max_location([200, 200, 3, -10, 10, -10, 18, 0]);
+
+//5
+let sum_of_odd_index = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    let sum = 0;
+
+    for (let i = 0; i < input.length; i++)
+        if (!(i % 2) || i === 0)
+            sum += input[i];
+    return sum;
+}
+
+console.log('5 task');
+console.log(sum_of_odd_index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+//6
+let reverse_array = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    let reversed_input = [];
+    for (let i = (input.length - 1), j = 0; i >= 0; i--, j++) {
+        reversed_input[j] = input[i];
+    }
+    return reversed_input;
+}
+
+console.log('6 task');
+console.log(reverse_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+//7
+let amount_odd = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    let count = 0;
+    for (let value of input)
+        if (value % 2)
+            count++;
+    return count;
+
+}
+
+console.log('7 task');
+console.log(amount_odd([1, 1, 2, 3, 4, 5, 6, 7, 3, 9]));
+
+//8
+let exchange = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    let mid = Math.floor(input.length / 2);
+
+    for (let i = 0, j = mid; i < mid; i++, j++)
+        [input[i], input[j]] = [input[j], input[i]];
+
+    if (input.length % 2 !== 0)
+        for (let i = input.length - 1; i > mid; i--)
+            [input[i], input[i - 1]] = [input[i - 1], input[i]];
+
+    return input;
+}
+
+console.log('8 task');
+console.log(exchange([1, 2, 3, 4, 5]));
+
+//9
+let bubble_sort = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    let is_done = true;
+
+    do {
+        is_done = true;
+        for (let i = 0; i < input.length - 1; i++)
+            if (input[i] > input[i + 1]) {
+                [input[i], input[i + 1]] = [input[i + 1], input[i]];
+                is_done = false;
+            }
+    }
+    while (!is_done)
+}
+
+console.log('9 task');
+let sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
+bubble_sort(sample);
+console.log(sample);
+
+let selection_sort = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    for (let i = 0; i < input.length; i++) {
+        for (let j = i; j < input.length; j++)
+            if (input[j] < input[i])
+                [input[j], input[i]] = [input[i], input[j]];
+    }
+
+}
+
+sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
+selection_sort(sample);
+console.log(sample);
+
+let insert = (input) => {
+    if (!isArrayOfNum(input)) return null;
+
+    for (let i = 0; i < input.length; i++)
+        for (let j = 0; j < input.length; j++)
+            if (input[i] < input[j])
+                for (let y = input.length - 1; y > j; y--)
+                    [input[y], input[y - 1]] = [input[y - 1], input[y]];
+}
+
+sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
+selection_sort(sample);
+console.log(sample);
+
+//10
+let partition = (input, firstIndex, lastIndex) =>{
+    const pivot = input[lastIndex];
+    let index = firstIndex;
+    for(let i = firstIndex; i < lastIndex; i++)
+    if(input[i] < pivot){
+        [input[i], input[index]] = [input[index], input[i]];
+        index++;
+        console.log(input);
+    }
+    [input[index], input[lastIndex]] = [input[lastIndex, input[index]]];
+    return index;
+}
+
+
+
+console.log('10 task');
+sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
+partition(sample);
+console.log(sample, 0, sample.length-1);
