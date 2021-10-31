@@ -87,13 +87,13 @@ let sum_of_odd_index = (input) => {
     let sum = 0;
 
     for (let i = 0; i < input.length; i++)
-        if (!(i % 2) || i === 0)
+        if ((i % 2) || i === 0)
             sum += input[i];
     return sum;
 }
 
 console.log('5 task');
-console.log(sum_of_odd_index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log(sum_of_odd_index([0, 1, 2, 3, 4, 5]));
 
 //6
 let reverse_array = (input) => {
@@ -122,7 +122,7 @@ let amount_odd = (input) => {
 }
 
 console.log('7 task');
-console.log(amount_odd([1, 1, 2, 3, 4, 5, 6, 7, 3, 9]));
+console.log(amount_odd([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 //8
 let exchange = (input) => {
@@ -180,37 +180,40 @@ sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
 selection_sort(sample);
 console.log(sample);
 
-let insert = (input) => {
-    if (!isArrayOfNum(input)) return null;
-
+let insert_sort = (input) => {
     for (let i = 0; i < input.length; i++)
-        for (let j = 0; j < input.length; j++)
-            if (input[i] < input[j])
-                for (let y = input.length - 1; y > j; y--)
+        for (let j = i + 1; j < input.length; j++)
+            if (input[i] > input[j])
+                for (let y = j; y > i; y--)
                     [input[y], input[y - 1]] = [input[y - 1], input[y]];
 }
 
-sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
-selection_sort(sample);
+sample = [3, 5, 1, 8, 2, 9, 4, 6, 7, 6];
+insert_sort(sample);
 console.log(sample);
 
 //10
-let partition = (input, firstIndex, lastIndex) =>{
+let partition = (input, firstIndex, lastIndex) => {
     const pivot = input[lastIndex];
     let index = firstIndex;
-    for(let i = firstIndex; i < lastIndex; i++)
-    if(input[i] < pivot){
-        [input[i], input[index]] = [input[index], input[i]];
-        index++;
-        console.log(input);
-    }
-    [input[index], input[lastIndex]] = [input[lastIndex, input[index]]];
+    for (let i = firstIndex; i < lastIndex; i++)
+        if (input[i] < pivot) {
+            [input[i], input[index]] = [input[index], input[i]];
+            index++;
+        }
+    [input[index], input[lastIndex]] = [input[lastIndex], input[index]];
     return index;
 }
 
+let quick_sort = (input, firstIndex, lastIndex) => {
+    if ((lastIndex - firstIndex) < 1) return;
 
+    const index = partition(input, firstIndex, lastIndex);
+    quick_sort(input, firstIndex, index - 1);
+    quick_sort(input, index + 1, lastIndex);
+}
 
 console.log('10 task');
-sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
-partition(sample);
-console.log(sample, 0, sample.length-1);
+sample = ['c', 'b', 'a', 'c', 'h', 'e', 'd', 'g', 'f'];
+quick_sort(sample, 0, sample.length - 1);
+console.log(sample);
