@@ -17,8 +17,8 @@ let sum_of_even = (first_value, last_value) => {
     console.log(`sum of even numbers in range [${first_value}, ${last_value}]: ${sum}\ncount of even numbers in range: ${count}`);
 }
 
-console.log('Task 1');
-sum_of_even(1, 99);
+// console.log('Task 1');
+// sum_of_even(1, 99);
 
 //2
 let isPrime = (number) => {
@@ -36,8 +36,8 @@ let isPrime = (number) => {
     }
 }
 
-console.log('Task 2');
-console.log(isPrime(23));
+// console.log('Task 2');
+// console.log(isPrime(23));
 
 //3
 let sqr_selection = (number) => {
@@ -78,9 +78,9 @@ let sqr_binary_search = (number) => {
     }
 }
 
-console.log('Task 3');
-console.log(sqr_selection(27));
-console.log(sqr_binary_search(9));
+// console.log('Task 3');
+// console.log(sqr_selection(27));
+// console.log(sqr_binary_search(9));
 
 //4
 let factorial = (number) => {
@@ -94,8 +94,8 @@ let factorial = (number) => {
     return result;
 }
 
-console.log('Task 4');
-console.log(factorial(8));
+// console.log('Task 4');
+// console.log(factorial(8));
 
 //5
 let sum_elements_of_num = (number) => {
@@ -112,8 +112,8 @@ let sum_elements_of_num = (number) => {
     return sum;
 }
 
-console.log('Task 5');
-console.log(sum_elements_of_num(2346));
+// console.log('Task 5');
+// console.log(sum_elements_of_num(2346));
 
 //6
 let inversion_num = (number) => {
@@ -131,7 +131,7 @@ let inversion_num = (number) => {
     let inversed_num = [];
     let i = -1;
 
-    for (let value of String(number)){
+    for (let value of String(number)) {
         i++;
         parts_of_num[i] = Number(value);
     }
@@ -141,5 +141,5 @@ let inversion_num = (number) => {
         Number(String(inversed_num).replace(/[\s.,%]/g, ''));
 }
 
-console.log('Task 6');
-console.log(inversion_num(123456789));
+// console.log('Task 6');
+// console.log(inversion_num(123456789));

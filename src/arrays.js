@@ -22,8 +22,8 @@ let min_value = (input) => {
     return min;
 }
 
-console.log('1 task');
-console.log(min_value([1, -1, 10, 4, 5, 1, 9, 6]));
+// console.log('1 task');
+// console.log(min_value([1, -1, 10, 4, 5, 1, 9, 6]));
 
 //2
 let max_value = (input) => {
@@ -36,8 +36,8 @@ let max_value = (input) => {
     return max;
 }
 
-console.log('2 task');
-console.log(max_value([5, 2, 3, -10, 10, -10, 18, 55, 0]));
+// console.log('2 task');
+// console.log(max_value([5, 2, 3, -10, 10, -10, 18, 55, 0]));
 
 //3
 let min_location = (input) => {
@@ -56,8 +56,8 @@ let min_location = (input) => {
     else console.log(`minimum element of array ${min}, this value takes several elements, their numbers: ${plase_in_array}.`);
 }
 
-console.log('3 task');
-min_location([5, 2, 3, -10, 10, 10, 18, 55, 0]);
+// console.log('3 task');
+// min_location([5, 2, 3, -10, 10, 10, 18, 55, 0]);
 
 //4
 let max_location = (input) => {
@@ -77,8 +77,8 @@ let max_location = (input) => {
     else console.log(`maximum element of array ${max}, this value takes several elements, their numbers: ${plase_in_array}.`);
 }
 
-console.log('4 task');
-max_location([200, 200, 3, -10, 10, -10, 18, 0]);
+// console.log('4 task');
+// max_location([200, 200, 3, -10, 10, -10, 18, 0]);
 
 //5
 let sum_of_odd_index = (input) => {
@@ -92,8 +92,8 @@ let sum_of_odd_index = (input) => {
     return sum;
 }
 
-console.log('5 task');
-console.log(sum_of_odd_index([0, 1, 2, 3, 4, 5]));
+// console.log('5 task');
+// console.log(sum_of_odd_index([0, 1, 2, 3, 4, 5]));
 
 //6
 let reverse_array = (input) => {
@@ -106,8 +106,8 @@ let reverse_array = (input) => {
     return reversed_input;
 }
 
-console.log('6 task');
-console.log(reverse_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
+// console.log('6 task');
+// console.log(reverse_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 //7
 let amount_odd = (input) => {
@@ -121,14 +121,14 @@ let amount_odd = (input) => {
 
 }
 
-console.log('7 task');
-console.log(amount_odd([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+// console.log('7 task');
+// console.log(amount_odd([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 //8
 let exchange = (input) => {
     if (!isArrayOfNum(input)) return null;
 
-    let mid = Math.floor(input.length / 2);
+    const mid = Math.floor(input.length / 2);
 
     for (let i = 0, j = mid; i < mid; i++, j++)
         [input[i], input[j]] = [input[j], input[i]];
@@ -140,14 +140,14 @@ let exchange = (input) => {
     return input;
 }
 
-console.log('8 task');
-console.log(exchange([1, 2, 3, 4, 5]));
+// console.log('8 task');
+// console.log(exchange([1, 2, 3, 4, 5]));
 
 //9
 let bubble_sort = (input) => {
     if (!isArrayOfNum(input)) return null;
 
-    let is_done = true;
+    let is_done = Boolean();
 
     do {
         is_done = true;
@@ -160,10 +160,10 @@ let bubble_sort = (input) => {
     while (!is_done)
 }
 
-console.log('9 task');
-let sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
-bubble_sort(sample);
-console.log(sample);
+// console.log('9 task');
+// let sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
+// bubble_sort(sample);
+// console.log(sample);
 
 let selection_sort = (input) => {
     if (!isArrayOfNum(input)) return null;
@@ -176,9 +176,9 @@ let selection_sort = (input) => {
 
 }
 
-sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
-selection_sort(sample);
-console.log(sample);
+// sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
+// selection_sort(sample);
+// console.log(sample);
 
 let insert_sort = (input) => {
     for (let i = 0; i < input.length; i++)
@@ -188,9 +188,9 @@ let insert_sort = (input) => {
                     [input[y], input[y - 1]] = [input[y - 1], input[y]];
 }
 
-sample = [3, 5, 1, 8, 2, 9, 4, 6, 7, 6];
-insert_sort(sample);
-console.log(sample);
+// sample = [3, 5, 1, 8, 2, 9, 4, 6, 7, 6];
+// insert_sort(sample);
+// console.log(sample);
 
 //10
 let partition = (input, firstIndex, lastIndex) => {
@@ -213,7 +213,7 @@ let quick_sort = (input, firstIndex, lastIndex) => {
     quick_sort(input, index + 1, lastIndex);
 }
 
-console.log('10 task');
-sample = ['c', 'b', 'a', 'c', 'h', 'e', 'd', 'g', 'f'];
-quick_sort(sample, 0, sample.length - 1);
-console.log(sample);
+// console.log('10 task');
+// sample = ['c', 'b', 'a', 'c', 'h', 'e', 'd', 'g', 'f'];
+// quick_sort(sample, 0, sample.length - 1);
+// console.log(sample);
