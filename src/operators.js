@@ -1,19 +1,19 @@
 //1
 let chose_operator = (operand_1, operand_2) => {
     if (isNaN(operand_1 + operand_2))
-        console.log('invalid input');
+        return 'invalid input';
     else
-        console.log(operand_1 % 2 ? operand_1 + operand_2 : operand_1 * operand_2);
+    return (operand_1 % 2 ? operand_1 + operand_2 : operand_1 * operand_2);
 }
 
 //2
 function find_quater(point_x, point_y) {
     switch (true) {
-        case isNaN(point_x + point_y): console.log('invalid input');
+        case isNaN(point_x + point_y): return 'invalid input';
             break;
-        case point_x > 0: console.log(point_y > 0 ? 'first quarter' : 'fourth quarter');
+        case point_x > 0: return point_y > 0 ? 'first quarter' : 'fourth quarter';
             break;
-        default: console.log(point_y > 0 ? 'second quarter' : 'third quarter');
+        default: return point_y > 0 ? 'second quarter' : 'third quarter';
     }
 }
 
@@ -23,8 +23,7 @@ let sum_of_positive = (first_num, second_num, third_num) => {
     let sum_of_positive = null;
     for (let i = 0; i < numbers.length; i++)
         if (isNaN(numbers[i])) {
-            console.log(`${i + 1} element is not a number`)
-            return null;
+            return `${i + 1} element is not a number`;
         }
         else
             if (+numbers[i] > 0)
@@ -32,18 +31,15 @@ let sum_of_positive = (first_num, second_num, third_num) => {
 
     if (sum_of_positive !== null) return sum_of_positive;
     else {
-        console.log('No positive numbers');
-        return null;
+        return 'No positive numbers';
     }
 }
 
 //4
 let calculate = (first_num, second_num, third_num) => {
     switch (true) {
-        case isNaN(first_num + second_num + third_num): {
-            console.log('Incorrect input')
-            return null;
-        }
+        case isNaN(first_num + second_num + third_num):
+            return 'Incorrect input';
         case (+first_num + +second_num + +third_num) > (first_num * second_num * third_num): 
              return (+first_num + +second_num + +third_num) + 3;
         default: return  (first_num * second_num * third_num) +3;
@@ -70,19 +66,19 @@ let rating_to_mark = (student_rating) => {
     }
 }
 
-console.log('Task 1');
-chose_operator(4, 10);
-console.log('Task 2');
-find_quater(2, -3);
-console.log('Task 3');
-console.log(sum_of_positive(10, -1, -1));
-console.log('Task 4');
-console.log(calculate(5, 5, 5));
-console.log('Task 5');
-/*0-19 F
-20-39 E
-40-59 D
-60-74 C
-75-89 B
-90-100 A*/
-console.log(rating_to_mark(19));
+// console.log('Task 1');
+// chose_operator(4, 10);
+// console.log('Task 2');
+// find_quater(2, -3);
+// console.log('Task 3');
+// console.log(sum_of_positive(10, -1, -1));
+// console.log('Task 4');
+// console.log(calculate(5, 5, 5));
+// console.log('Task 5');
+// /*0-19 F
+// 20-39 E
+// 40-59 D
+// 60-74 C
+// 75-89 B
+// 90-100 A*/
+// console.log(rating_to_mark(19));

@@ -1,25 +1,24 @@
-let isArrayOfNum = (input) => {
-    if (typeof (input) !== 'object') {
-        console.log('invalid input');
+const isArrayOfNum = (input) => {
+    if (!Array.isArray(input))
         return false;
-    }
     else
         for (let value of input)
             if (isNaN(value)) {
-                console.log('invalid input');
                 return false;
             }
-    return true;
+    return true
 }
 
 //1
 let min_value = (input) => {
-    if (!isArrayOfNum(input)) return null;
-    let min = input[0];
-    for (let value of input)
-        if (+min > +value)
-            min = value;
-    return min;
+    if (isArrayOfNum(input)) {
+        let min = input[0];
+        for (let value of input)
+            if (+min > +value)
+                min = value;
+        return min;
+    }
+    return null;
 }
 
 // console.log('1 task');
@@ -51,9 +50,14 @@ let min_location = (input) => {
             counter_min++;
             plase_in_array[counter_min] = i + 1;
         }
-    if (counter_min === 0)
+    if (counter_min === 0) {
         console.log(`minimum element of array ${min}, it's number ${plase_in_array[0]}.`);
-    else console.log(`minimum element of array ${min}, this value takes several elements, their numbers: ${plase_in_array}.`);
+        return Number(plase_in_array);
+    }
+    else {
+        console.log(`minimum element of array ${min}, this value takes several elements, their numbers: ${plase_in_array}.`);
+        return plase_in_array;
+    }
 }
 
 // console.log('3 task');
@@ -72,9 +76,14 @@ let max_location = (input) => {
             counter_max++;
             plase_in_array[counter_max] = i + 1;
         }
-    if (counter_max === 0)
+    if (counter_max === 0) {
         console.log(`maximum element of array ${max}, it's number ${plase_in_array[0]}.`);
-    else console.log(`maximum element of array ${max}, this value takes several elements, their numbers: ${plase_in_array}.`);
+        return Number(plase_in_array);
+    }
+    else {
+        console.log(`maximum element of array ${max}, this value takes several elements, their numbers: ${plase_in_array}.`);
+        return plase_in_array;
+    }
 }
 
 // console.log('4 task');
@@ -97,7 +106,7 @@ let sum_of_odd_index = (input) => {
 
 //6
 let reverse_array = (input) => {
-    if (!isArrayOfNum(input)) return null;
+    if (!Array.isArray(input)) return null;
 
     let reversed_input = [];
     for (let i = (input.length - 1), j = 0; i >= 0; i--, j++) {
@@ -106,8 +115,8 @@ let reverse_array = (input) => {
     return reversed_input;
 }
 
-// console.log('6 task');
-// console.log(reverse_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
+//  console.log('6 task');
+//  console.log(reverse_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 //7
 let amount_odd = (input) => {
@@ -126,7 +135,7 @@ let amount_odd = (input) => {
 
 //8
 let exchange = (input) => {
-    if (!isArrayOfNum(input)) return null;
+    if (!Array.isArray(input)) return null;
 
     const mid = Math.floor(input.length / 2);
 
@@ -141,11 +150,11 @@ let exchange = (input) => {
 }
 
 // console.log('8 task');
-// console.log(exchange([1, 2, 3, 4, 5]));
+// console.log(exchange([1, 2, 3, 4]));
 
 //9
 let bubble_sort = (input) => {
-    if (!isArrayOfNum(input)) return null;
+    if (!Array.isArray(input)) return null;
 
     let is_done = Boolean();
 
@@ -158,6 +167,7 @@ let bubble_sort = (input) => {
             }
     }
     while (!is_done)
+    return input;
 }
 
 // console.log('9 task');
@@ -166,14 +176,14 @@ let bubble_sort = (input) => {
 // console.log(sample);
 
 let selection_sort = (input) => {
-    if (!isArrayOfNum(input)) return null;
+    if (!Array.isArray(input)) return null;
 
     for (let i = 0; i < input.length; i++) {
         for (let j = i; j < input.length; j++)
             if (input[j] < input[i])
                 [input[j], input[i]] = [input[i], input[j]];
     }
-
+return input;
 }
 
 // sample = [3, 5, 1, 8, 2, 9, 4, 6, 7];
@@ -181,11 +191,13 @@ let selection_sort = (input) => {
 // console.log(sample);
 
 let insert_sort = (input) => {
+    if (!Array.isArray(input)) return null;
     for (let i = 0; i < input.length; i++)
         for (let j = i + 1; j < input.length; j++)
             if (input[i] > input[j])
                 for (let y = j; y > i; y--)
                     [input[y], input[y - 1]] = [input[y - 1], input[y]];
+    return input;
 }
 
 // sample = [3, 5, 1, 8, 2, 9, 4, 6, 7, 6];
@@ -206,11 +218,13 @@ let partition = (input, firstIndex, lastIndex) => {
 }
 
 let quick_sort = (input, firstIndex, lastIndex) => {
-    if ((lastIndex - firstIndex) < 1) return;
+    if (!Array.isArray(input)) return null;
+    if ((lastIndex - firstIndex) < 1) return input;
 
     const index = partition(input, firstIndex, lastIndex);
     quick_sort(input, firstIndex, index - 1);
     quick_sort(input, index + 1, lastIndex);
+    return input;
 }
 
 // console.log('10 task');
