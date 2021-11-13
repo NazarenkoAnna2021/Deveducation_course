@@ -35,7 +35,7 @@ function getNumber(array = []) {
             return array.find(element => element % 2 === 0);
         case odd === 1:
             return array.find(element => element % 2 === 1);
-        default: return "array does'nt match the task";
+        default: return "array does\'nt match the task";
     }
 }
 
@@ -84,7 +84,6 @@ console.log(countCharacters('a 2ab !d')) // should return {a: 2, b:1, d:1, 2:1}
 function getNextPalindrome(number) {
     while (true) {
         number++;
-        //console.log(number);
         const array = String(number).split('').reverse();
         let revers = '';
         for (let value of array)
@@ -103,7 +102,7 @@ console.log(getNextPalindrome(999)) // returns 1001
 
 //6
 const set = {
-    element: [1],
+    element: [],
     add: (input) => {
         if (!Array.isArray(input) && set.element.find(val => val != input))
             set.element.push(input);
@@ -124,8 +123,8 @@ const set = {
         return false;
     }
 }
-set.add([1, 1, 2, 3, 4, 5]);
-set.remove(2);
-console.log(set.has(5));
-console.log("задание 6")
-console.log(set.element);
+// set.add([1, 1, 2, 3, 4, 5]);
+// set.remove(2);
+// console.log(set.has(5));
+// console.log("задание 6")
+// console.log(set.element);
