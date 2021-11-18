@@ -15,6 +15,7 @@ let sum_of_even = (first_value, last_value) => {
         }
     }
     console.log(`sum of even numbers in range [${first_value}, ${last_value}]: ${sum}\ncount of even numbers in range: ${count}`);
+    return sum;
 }
 
 // console.log('Task 1');
@@ -32,12 +33,12 @@ let isPrime = (number) => {
         default:
             for (let i = 2; i < number; i++)
                 if (+number % i === 0) return false;
-                else return true;
+                return true;
     }
 }
 
 // console.log('Task 2');
-// console.log(isPrime(23));
+// console.log(isPrime(25));
 
 //3
 let sqr_selection = (number) => {

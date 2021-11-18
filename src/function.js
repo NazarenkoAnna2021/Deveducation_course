@@ -11,16 +11,11 @@ function week_day(day_num) {
 
 //2
 let isDot = (input = []) => {
-    if (typeof (input) !== 'object') {
-        console.log('invalid input');
+    if (!Array.isArray(input))
         return false;
-    }
-    else
-        for (let value of input)
-            if (isNaN(value)) {
-                console.log('invalid input');
-                return false;
-            }
+    for (let value of input)
+        if (isNaN(value))
+            return false;
     if (input.length != 2) return false;
     return true;
 }
@@ -28,15 +23,15 @@ let isDot = (input = []) => {
 let points_distance = (point_A = [], point_B = []) => {
     if (!isDot(point_A) || !isDot(point_B)) return null;
 
-    return Math.sqrt(Math.pow((point_B[0] - point_A[0]), 2) + Math.pow((point_B[1] - point_A[1]), 2)).toFixed(2);
+    return Number(Math.sqrt(Math.pow((+point_B[0] - point_A[0]), 2) + Math.pow((point_B[1] - point_A[1]), 2)).toFixed(2));
 }
 
-// console.log(points_distance([1, 2], [2, 1]));
+//  console.log(points_distance([1, 2], [2, 1]));
 
 //3
 let hundred = (names, number, name_handred) => {
     if (number[1] === 0)
-        if (+number[2] === 0)
+        if (number[2] === 0)
             return names[name_handred].concat(' hundred');
         else
             return names[name_handred].concat(' hundred ', names[number[2]]);
@@ -162,7 +157,7 @@ let prescription = (number) => {
         }
 }
 
-//console.log(prescription(918));
+console.log(prescription('a'));
 
 //4
 let find_concurrence = (word) => {
@@ -214,6 +209,7 @@ let find_concurrence = (word) => {
         case 26: return 80;
         case 27: return 90;
         case 28: return 100;
+        default: return null;
     }
 }
 
@@ -221,7 +217,7 @@ let calc_dozens = (dozen, units) => {
     return String.prototype.concat((find_concurrence(dozen) / 10), find_concurrence(units));
 }
 let calc_handreds = (handred, dozen, units) => {
-    
+
     return String.prototype.concat((find_concurrence(handred)), calc_dozens(dozen, units));
 }
 let calc_handreds_1 = (handred, units) => {
@@ -238,6 +234,7 @@ let word_to_num = (words = '') => {
         case 2: return Number(calc_dozens(parts[0], parts[1]));
         case 3: return Number(calc_handreds_1(parts[0], parts[2]));
         case 4: return Number(calc_handreds(parts[0], parts[2], parts[3]));
+        default: return null;
     }
 
 }
