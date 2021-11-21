@@ -71,7 +71,7 @@ function sumDischarges(num = []) {
 
 // console.log(getSum('9999', '999'));
 
-//3  
+//4
   function makeCaching(getSum) {
     var cache = {};
     return function(number1, number2) {
