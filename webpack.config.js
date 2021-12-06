@@ -44,13 +44,20 @@ module.exports = {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                  loader: 'babel-loader',
-                  options: {
-                    presets: ['@babel/preset-env'],
-                    plugins: ['@babel/plugin-transform-runtime']
-                  }
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-transform-runtime']
+                    }
                 }
-              }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
+            },
         ]
     },
     devServer: {
