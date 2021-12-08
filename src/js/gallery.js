@@ -14,7 +14,8 @@ export class Gallery {
         this.readKeyPress = this.readKeyPress.bind(this);
     }
 
-    switchPauseImg = (domElement) => this.isPaused ? this.draw(domElement, constants.playIMg) : this.draw(domElement, constants.pauseIMG)
+    switchPauseImg = (domElement) => this.isPaused ? this.draw(domElement, constants.playIMg)
+        : this.draw(domElement, constants.pauseIMG)
 
     draw = (element, url) => element.setAttribute(constants.src, url)
 
@@ -66,11 +67,13 @@ export class Gallery {
             this.draw(dom.galleryImg, dogs[this.position]);
         }
     }
+
     calcValues(number) {
         this.position = number;
         this.previous = this.position - 1;
         this.next = this.position + 1;
     }
+
     readKeyPress(event) {
         switch (event.code) {
             case constants.digit1: this.drawPosition(0);
