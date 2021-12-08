@@ -1,10 +1,17 @@
 import '/css/style.css'
-import { main, goToPrevious, goToNext } from './functions'
+import { buttonsEffects } from './effects'
 import { dom } from './dom'
-import '/img/previous.png'
-import '/img/pause.png'
-import '/img/next.png'
+import { controller } from './controller/controller'
+import './img'
+import { work } from './wopkClass'
 
-main();
-dom.goUp.addEventListener('click', goToPrevious);
-dom.goDown.addEventListener('click', goToNext);
+//controller.showFirstTime();
+
+//console.log(work.state);
+
+//dom.switchImg.addEventListener('click', controller.setPause);
+dom.switchImg.addEventListener('mouseover', buttonsEffects.setMouseOver);
+dom.switchImg.addEventListener('mouseout', buttonsEffects.setMouseOut);
+dom.switchImg.addEventListener('mousedown', buttonsEffects.clickedButton);
+dom.switchImg.addEventListener('mouseup', buttonsEffects.normalizeButton);
+addEventListener('keypress', controller.readKeyPress);
